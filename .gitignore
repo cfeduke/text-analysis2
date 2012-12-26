@@ -1,0 +1,16 @@
+target/
+*.swp
+*.class
+*.jar
+*.war
+*.ear
+/.classpath
+/.launch
+/.project
+/.settings
+/*.launch
+/*.tmproj
+/ivy*
+/eclipse
+.DS_Store
+/.gradle
