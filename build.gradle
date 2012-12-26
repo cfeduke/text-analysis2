@@ -3,12 +3,25 @@ apply plugin: 'groovy'
 
 repositories {
     mavenCentral()
+    maven {
+      url "http://opennlp.sourceforge.net/maven2"
+    }
+}
+
+task 'create-dirs' << {
+  project.sourceSets*.each {
+    it.allSource.srcDirs.each {
+      println "$it" - "${projectDir}${File.separator}";
+      if (!(it.exists()))
+        it.mkdirs();
+    }
+  }
 }
 
 dependencies {
     groovy group: 'org.codehaus.groovy', name: 'groovy', version: '2.0.6'
     testCompile group: 'junit', name: 'junit', version: '4.8.2'
-    groovy group: 'org.apache.opennlp', name: 'opennlp-tools', version: '1.5.2-incubating'
-    groovy group: 'org.apache.opennlp', name: 'opennlp-maxent', version: '3.0.2-incubating'
-    groovy group: 'edu.washington.cs.knowitall.nlptools', name: 'nlptools-stem-snowball_2.9.2', version: '2.2.5'
+    compile group: 'org.apache.opennlp', name: 'opennlp-tools', version: '1.5.2-incubating'
+    compile group: 'org.apache.opennlp', name: 'opennlp-maxent', version: '3.0.2-incubating'
+//    compile group: 'edu.washington.cs.knowitall.nlptools', name: 'nlptools-stem-snowball_2.9.2', version: '2.2.5'
 }
