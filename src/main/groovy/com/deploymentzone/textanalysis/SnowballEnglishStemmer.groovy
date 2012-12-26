@@ -6,6 +6,17 @@ import org.tartarus.snowball.ext.EnglishStemmer
 class SnowballEnglishStemmer {
   def static void main(String[] args) {
     def stemmer = new EnglishStemmer();
-    ["bank":"bank", ].each { kv -> println "$kv.key $kv.value" }
+    [
+      "bank":"bank",
+      "banks":"bank",
+      "banking":"bank",
+      "banker":"banker",
+      "banked":"bank",
+      "bankers":"banker"
+      ].each {
+        stemmer.setCurrent(it.key)
+        stemmer.stem();
+        println "Expecting: $it.value\t\tStemmed: ${stemmer.getCurrent()}\t\tFrom $it.key"
+      }
   }
 }

@@ -23,5 +23,5 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.8.2'
     compile group: 'org.apache.opennlp', name: 'opennlp-tools', version: '1.5.2-incubating'
     compile group: 'org.apache.opennlp', name: 'opennlp-maxent', version: '3.0.2-incubating'
-//    compile group: 'edu.washington.cs.knowitall.nlptools', name: 'nlptools-stem-snowball_2.9.2', version: '2.2.5'
+    compile group: 'edu.washington.cs.knowitall.nlptools', name: 'nlptools-stem-snowball_2.9.2', version: '2.2.5'
 }
